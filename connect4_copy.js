@@ -21,7 +21,7 @@ class Game {
 
         const top = document.createElement('tr');
         top.setAttribute('id', 'column-top');
-        top.addEventListener('click', handleClick);
+        top.addEventListener('click', this.handleClick);
 
         for (let x = 0; x < this.width; x++) {
             const headCell = document.createElement('td');
@@ -73,6 +73,7 @@ class Game {
         if (y === null) {
             return;
         }
+
         this.board[y][x] = this.currPlayer;
         this.placeInTable(y, x);
 
