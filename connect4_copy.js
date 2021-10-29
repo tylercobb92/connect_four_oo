@@ -81,7 +81,8 @@ class Game {
         this.placeInTable(y, x);
 
         if (this.checkForWin()) {
-            return this.endGame(`Player ${this.currPlayer} won!`)
+
+            return this.endGame(`${this.currPlayer.color} wins!`);
         }
 
         if (this.board.every(row => row.every(cell => cell))) {
@@ -115,5 +116,17 @@ class Game {
             }
         }
     }
-
 }
+
+class Player {
+    constructor(color) {
+        this.color = color
+    }
+}
+
+document.getElementById('start').addEventListener('click', () => {
+    let p1 = new Player(document.getElementById('p1Color').value);
+    let p2 = new Player(document.getElementById('p2Color').value);
+    new Game(p1, p2);
+})
+
